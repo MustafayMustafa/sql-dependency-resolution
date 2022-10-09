@@ -7,6 +7,7 @@ from src.graph import Graph
 def create_graph():
     return Graph()
 
+
 def test_init_graph(create_graph):
     graph = create_graph
 
@@ -19,7 +20,7 @@ def test_repr(create_graph):
     graph.add_edge(0, 1)
     graph.add_edge(0, 2)
 
-    assert repr(graph) == '0 => [1, 2]\n1 => []\n2 => []\n'
+    assert repr(graph) == "0 => [1, 2]\n1 => []\n2 => []\n"
 
 
 def test_add_edge(create_graph):
@@ -33,9 +34,9 @@ def test_add_edge(create_graph):
 
 def test_graph_str_verticies(create_graph):
     graph = create_graph
-    graph.add_edge('A', 'B')
-    graph.add_edge('A', 'C')
-    graph.add_edge('B', 'C')
+    graph.add_edge("A", "B")
+    graph.add_edge("A", "C")
+    graph.add_edge("B", "C")
 
-    assert graph.graph == {'A': ['B', 'C'], 'B': ['C'], 'C': []}
+    assert graph.graph == {"A": ["B", "C"], "B": ["C"], "C": []}
     assert graph.size == 3
