@@ -19,7 +19,7 @@ def test_repr(create_graph):
     graph = create_graph
     graph.add_edge(0, 1)
     graph.add_edge(0, 2)
-    
+
     assert repr(graph) == "0 => [1, 2]\n1 => []\n2 => []\n"
 
 

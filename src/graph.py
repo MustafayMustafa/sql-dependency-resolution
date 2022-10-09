@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import List, TypeVar
+from typing import TypeVar
 
 
 T = TypeVar("T")
@@ -19,7 +19,7 @@ class Graph:
             str: adjancey list representation.
         """
         str_builder = [f"{u} => {v}\n" for u, v in self.graph.items()]
-        return ''.join(str_builder)
+        return "".join(str_builder)
 
     def add_edge(self, u: T, v: T) -> None:
         """add an edge from u to v and store this in the adjancey list.
