@@ -22,7 +22,11 @@ class TopologicalSortMixin:
         Returns:
             dict: key: vertex, value: indegree count
         """
-        pass
+        degrees = dict.fromkeys(graph.keys(), 0)
+        for value in graph.values():
+            for dependency in value:
+                degrees[dependency] += 1
+        return degrees
 
     @staticmethod
     def sort(graph: dict, size: int) -> List:
