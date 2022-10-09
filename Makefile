@@ -6,3 +6,6 @@ coverage:
 
 coverage-html:
 	pytest --cov-report html --cov=src tests/
+
+test:
+	pytest
