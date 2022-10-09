@@ -11,6 +11,7 @@ class TopologicalSortMixin:
       - adjancey list represnts a directed acylic graph.
     """
 
+    @staticmethod
     def in_degrees(self, graph: dict, size: int) -> dict:
         """produce a dict of in-degree counts for each vertex.
 
@@ -23,6 +24,7 @@ class TopologicalSortMixin:
         """
         pass
 
+    @staticmethod
     def sort(self, graph: dict, size: int) -> List:
         """Return a list with containing the topological ordering of the graph.
 
