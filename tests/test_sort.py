@@ -1,6 +1,6 @@
 import pytest
 
-from src.topological_sort import TopologicalSortMixin
+from src.topological_sort import TopologicalSortMixin, CircularDependencyException
 
 
 @pytest.fixture
@@ -51,6 +51,6 @@ def test_cycle_detected():
     graph = {0: [1], 1: [0]}
     size = len(graph.keys())
 
-    with pytest.raises(Exception) as e:
+    with pytest.raises(CircularDependencyException) as e:
         topological_ordering = TopologicalSortMixin.sort(graph=graph, size=size)
     assert str(e.value) == "Cycle detected"
