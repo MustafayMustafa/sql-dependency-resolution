@@ -3,7 +3,7 @@ A dependency resolution library that performs conflict resolution to create a to
 
 
 ## Usage
-* import DependencyResolver.
+* import using `from resolver import DependencyResolver`
 * use `create_order` and `drop_order` to retrieve dependency ordering.(currently only views are supported).
 
 ## Caveats
