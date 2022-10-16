@@ -2,7 +2,7 @@ from os import listdir
 from os.path import isfile, join, split
 from pathlib import Path
 from typing import List
-3
+
 from src.graph import Graph
 from src.sql_node import ViewNode
 from src.topological_sort import TopologicalSortMixin

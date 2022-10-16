@@ -2,6 +2,7 @@ import pytest
 
 from src.resolver import DependencyResolver
 
+
 def test_valid_sorting():
     views = "tests/data/"
     resolver = DependencyResolver(objects_path=views)
@@ -18,6 +19,8 @@ def test_valid_sorting():
         "vw_view_2",
         "vw_view_3",
     ]
+
+
 @pytest.mark.skip
 # TODO: mock files to add extra view that causes circular dependency
 def test_circular_dependency():
