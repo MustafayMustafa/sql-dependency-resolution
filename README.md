@@ -7,8 +7,8 @@ A dependency resolution library that performs conflict resolution to create a to
 * use `create_order` and `drop_order` to retrieve dependency ordering.(currently only views are supported).
 
 ## caveats
-* assumes view name of file is the name of view.
-* views must be pre-fixed with `vw` or `mvw`.
+* assumes name of file is the name of view.
+* views must be pre-fixed with `vw_` or `mvw_`.
 * dependecies are collected from join conditions.
 ## TODO
 * implement functions, procedures and indexes.
