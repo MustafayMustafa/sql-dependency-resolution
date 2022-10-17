@@ -18,4 +18,3 @@ Run tests with `pytest`
 ## TODO
 * implement functions, procedures and indexes.
 * auto detect name from header using regex.
-* collect dependencies from sql FROM statement.
