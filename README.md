@@ -5,7 +5,7 @@ A dependency resolution library that performs conflict resolution to create a to
 Install using `pip install sql-dependency-resolver`
 
 ## Usage
-* import using `from resolver import DependencyResolver`
+* import using `from resolver import ViewDependencyResolver`
 * use `create_order` and `drop_order` to retrieve dependency ordering.(currently only views are supported).
 
 ## Caveats
