@@ -1,4 +1,5 @@
 import pytest
+from graph import Graph
 
 from src.topological_sort import TopologicalSortMixin, CircularDependencyException
 
@@ -54,3 +55,16 @@ def test_cycle_detected():
     with pytest.raises(CircularDependencyException) as e:
         topological_ordering = TopologicalSortMixin.sort(graph=graph, size=size)
     assert str(e.value) == "Cycle detected"
+
+
+def test_mixin_with_add_edge():
+    g = Graph()
+    g.add_edge("B", "A")
+    g.add_edge("B", "C")
+    g.add_edge("D", "C")
+
+    in_degrees = TopologicalSortMixin.in_degrees(g.graph, None)
+    ordering = TopologicalSortMixin.sort(graph=g.graph, size=g.size)
+
+    assert in_degrees == {'A': 1, 'B': 0, 'C': 2, 'D': 0}
+    assert ordering == ['B', 'D', 'A', 'C']
