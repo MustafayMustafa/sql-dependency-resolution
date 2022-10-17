@@ -14,6 +14,7 @@ class DependencyResolver(TopologicalSortMixin):
     Args:
         TopologicalSortMixin (class): sort mixin for topological sorting.
     """
+    type_class = ViewNode
 
     def __init__(self, objects_path: str) -> None:
         self.graph = Graph()
@@ -28,7 +29,7 @@ class DependencyResolver(TopologicalSortMixin):
     def create_nodes(self) -> None:
         """Create SQL nodes and append to dependency graph."""
         for file in self.files:
-            node = ViewNode(file)
+            node = self.type_class(file)
             name = Path(file).stem
             for dependency in node.dependencies:
                 self.graph.add_edge(dependency, name)
@@ -48,3 +49,6 @@ class DependencyResolver(TopologicalSortMixin):
             List: destruction order.
         """
         return list(reversed(self.order))
+
+class ViewDependencyResolver(DependencyResolver):
+    type_class = ViewNode

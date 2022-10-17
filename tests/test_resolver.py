@@ -1,13 +1,13 @@
 import shutil
 
 import pytest
-from src.resolver import DependencyResolver
+from src.resolver import ViewDependencyResolver
 from src.topological_sort import CircularDependencyException
 
 
 def test_resolver_in_degree():
     views = "tests/data/views/"
-    resolver = DependencyResolver(objects_path=views)
+    resolver = ViewDependencyResolver(objects_path=views)
     degrees = resolver.in_degrees(resolver.graph.graph, None)
 
     assert degrees == {"vw_view_1": 1, "vw_view_2": 1, "vw_view_3": 0, "vw_view_4": 2}
@@ -15,7 +15,7 @@ def test_resolver_in_degree():
 
 def test_valid_sorting():
     views = "tests/data/views/"
-    resolver = DependencyResolver(objects_path=views)
+    resolver = ViewDependencyResolver(objects_path=views)
 
     assert resolver.create_order() == [
         "vw_view_3",
@@ -58,6 +58,6 @@ def test_circular_dependency(tmp_path):
         f.write(vw_view_6)
 
     with pytest.raises(CircularDependencyException) as e:
-        resolver = DependencyResolver(objects_path=destination_dir)
+        resolver = ViewDependencyResolver(objects_path=destination_dir)
         resolver.create_order()
     assert str(e.value) == "Cycle detected"
