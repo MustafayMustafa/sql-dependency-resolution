@@ -66,5 +66,5 @@ def test_mixin_with_add_edge():
     in_degrees = TopologicalSortMixin.in_degrees(g.graph, None)
     ordering = TopologicalSortMixin.sort(graph=g.graph, size=g.size)
 
-    assert in_degrees == {'A': 1, 'B': 0, 'C': 2, 'D': 0}
-    assert ordering == ['B', 'D', 'A', 'C']
+    assert in_degrees == {"A": 1, "B": 0, "C": 2, "D": 0}
+    assert ordering == ["B", "D", "A", "C"]
