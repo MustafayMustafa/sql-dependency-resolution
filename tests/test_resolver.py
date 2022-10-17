@@ -4,7 +4,7 @@ from src.resolver import DependencyResolver
 
 
 def test_valid_sorting():
-    views = "tests/data/"
+    views = "tests/data/views/"
     resolver = DependencyResolver(objects_path=views)
 
     assert resolver.create_order() == [
