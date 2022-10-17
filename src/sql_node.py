@@ -35,4 +35,4 @@ class BaseSqlNode:
 class ViewNode(BaseSqlNode):
     """Represents database view and materliazed view objects."""
 
-    dependency_regex_pattern = "(?<=join )vw_\w+|mvw_\w+"
+    dependency_regex_pattern = "(?<=join )vw_\w+|mvw_\w+|(?<=from )vw_\w+|mvw_\w+"
