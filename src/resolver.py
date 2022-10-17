@@ -14,7 +14,7 @@ class DependencyResolver(TopologicalSortMixin):
     Args:
         TopologicalSortMixin (class): sort mixin for topological sorting.
     """
-    type_class = ViewNode
+    type_class = None
 
     def __init__(self, objects_path: str) -> None:
         self.graph = Graph()
