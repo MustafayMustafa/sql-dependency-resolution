@@ -31,7 +31,7 @@ class DependencyResolver(TopologicalSortMixin):
             node = ViewNode(file)
             name = Path(file).stem
             for dependency in node.dependencies:
-                self.graph.add_edge(name, dependency)
+                self.graph.add_edge(dependency, name)
 
     def create_order(self) -> List:
         """The order to create SQL objects.
@@ -39,7 +39,7 @@ class DependencyResolver(TopologicalSortMixin):
         Returns:
             List: creation order.
         """
-        return list(reversed(self.order))
+        return self.order
 
     def drop_order(self) -> List:
         """The order to destroy the SQL objects.
@@ -47,4 +47,4 @@ class DependencyResolver(TopologicalSortMixin):
         Returns:
             List: destruction order.
         """
-        return self.order
+        return list(reversed(self.order))
