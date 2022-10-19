@@ -3,9 +3,9 @@ from os.path import isfile, join, split
 from pathlib import Path
 from typing import List
 
-from src.graph import Graph
-from src.sql_node import ViewNode
-from src.topological_sort import TopologicalSortMixin
+from resolver.graph import Graph
+from resolver.sql_node import ViewNode
+from resolver.topological_sort import TopologicalSortMixin
 
 
 class DependencyResolver(TopologicalSortMixin):

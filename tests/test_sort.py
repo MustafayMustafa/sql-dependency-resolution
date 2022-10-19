@@ -1,7 +1,7 @@
 import pytest
-from src.graph import Graph
+from resolver.graph import Graph
 
-from src.topological_sort import TopologicalSortMixin, CircularDependencyException
+from resolver.topological_sort import TopologicalSortMixin, CircularDependencyException
 
 
 @pytest.fixture

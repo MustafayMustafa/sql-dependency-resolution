@@ -1,6 +1,6 @@
 import pytest
 
-from src.graph import Graph
+from resolver.graph import Graph
 
 
 @pytest.fixture()

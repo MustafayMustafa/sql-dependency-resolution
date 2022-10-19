@@ -1,8 +1,8 @@
 import shutil
 
 import pytest
-from src.resolver import ViewDependencyResolver
-from src.topological_sort import CircularDependencyException
+from resolver.resolver import ViewDependencyResolver
+from resolver.topological_sort import CircularDependencyException
 
 
 def test_resolver_in_degree():

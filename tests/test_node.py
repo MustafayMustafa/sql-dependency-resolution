@@ -1,6 +1,6 @@
 import pytest
 
-from src.sql_node import BaseSqlNode, ViewNode
+from resolver.sql_node import BaseSqlNode, ViewNode
 
 
 def test_raises_exception():
