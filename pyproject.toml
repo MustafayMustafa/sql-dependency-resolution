@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sql-dependency-resolver"
-version = "1.2.0"
+version = "2.0.0"
 description = "A dependency resolution library that performs conflict resolution to create a topological ordering for creating and destroying SQL objects such as views, functions and indexes."
 readme = "README.md"
 authors = [{ name = "Mustafa Mustafa", email = "mustafaymustafa@icloud.com" }]
