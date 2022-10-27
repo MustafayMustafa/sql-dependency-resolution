@@ -31,8 +31,12 @@ class DependencyResolver(TopologicalSortMixin):
         for file in self.files:
             node = self.type_class(file)
             name = Path(file).stem
-            for dependency in node.dependencies:
-                self.graph.add_edge(dependency, name)
+
+            if node.dependencies:
+                for dependency in node.dependencies:
+                    self.graph.add_edge(dependency, name)
+            elif name not in self.graph.graph:
+                self.graph.add_node(name)
 
     def create_order(self) -> List:
         """The order to create SQL objects.
