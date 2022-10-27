@@ -34,3 +34,13 @@ class Graph:
             self.graph[v] = []
 
         self.size = len(self.graph)
+    
+    def add_node(self, u: T) -> None:
+        """add a single vertex to the graph.
+            Update size of the graph on insert.
+
+        Args:
+            u (T): vertex.
+        """
+        self.graph[u] = []
+        self.size = len(self.graph)
