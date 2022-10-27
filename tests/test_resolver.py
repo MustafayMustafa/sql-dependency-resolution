@@ -61,3 +61,36 @@ def test_circular_dependency(tmp_path):
         resolver = ViewDependencyResolver(objects_path=destination_dir)
         resolver.create_order()
     assert str(e.value) == "Cycle detected"
+
+
+
+def test_no_deps(tmp_path):
+    views = "tests/data/views/"
+
+    source_dir = "tests/data/views"
+    destination_dir = tmp_path / "sub"
+    shutil.copytree(source_dir, destination_dir)
+
+    vw_view_5 = """
+    create view vw_view_5 as
+    select * 
+    from some_table st
+    """
+    with open(f"{destination_dir}/vw_view_5.txt", "a") as f:
+        f.write(vw_view_5)
+
+    resolver = ViewDependencyResolver(objects_path=destination_dir)
+    assert resolver.create_order() == [
+        "vw_view_5",
+        "vw_view_3",
+        "vw_view_1",
+        "vw_view_2",
+        "vw_view_4",
+    ]
+    assert resolver.drop_order() == [
+        "vw_view_4",
+        "vw_view_2",
+        "vw_view_1",
+        "vw_view_3",
+        "vw_view_5",
+    ]
